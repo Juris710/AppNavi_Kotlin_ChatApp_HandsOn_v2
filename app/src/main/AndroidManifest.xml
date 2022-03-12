@@ -10,6 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HandsOnChatApp">
         <activity
+            android:name=".LoginActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".RegisterActivity" />
+        </activity>
+        <activity
             android:name=".RegisterActivity"
             android:exported="true">
             <intent-filter>

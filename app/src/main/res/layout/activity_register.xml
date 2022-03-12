@@ -13,9 +13,11 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
+        android:background="@drawable/edittext_frame"
         android:ems="10"
         android:hint="ユーザー名"
         android:inputType="textPersonName"
+        android:paddingLeft="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/select_photo_button_register" />
@@ -27,9 +29,11 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
+        android:background="@drawable/edittext_frame"
         android:ems="10"
         android:hint="メールアドレス"
         android:inputType="textEmailAddress"
+        android:paddingLeft="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/username_edittext_register" />
@@ -41,9 +45,11 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
+        android:background="@drawable/edittext_frame"
         android:ems="10"
         android:hint="パスワード"
         android:inputType="textPassword"
+        android:paddingLeft="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/email_edittext_register" />
@@ -53,6 +59,7 @@
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginTop="12dp"
+        android:background="@drawable/register_button"
         android:text="登録"
         app:layout_constraintEnd_toEndOf="@+id/password_edittext_register"
         app:layout_constraintStart_toStartOf="@+id/password_edittext_register"
@@ -73,12 +80,13 @@
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_marginTop="32dp"
+        android:background="@drawable/select_photo_button"
         android:text="写真を選択"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
+    <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/circle_view_register"
         android:layout_width="150dp"
         android:layout_height="150dp"

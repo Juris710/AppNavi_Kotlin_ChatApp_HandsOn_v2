@@ -8,6 +8,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.handsonchatapp.databinding.ActivityMessageBinding
@@ -53,7 +54,13 @@ class MessageActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
+        supportActionBar?.title = "メッセージ"
+
         recyclerView = binding.recyclerViewMessage
+
+        val dividerItemDecoration =
+            DividerItemDecoration(this, LinearLayoutManager(this).orientation)
+        recyclerView?.addItemDecoration(dividerItemDecoration)
 
         fetchCurrentUser()
 

@@ -74,6 +74,8 @@ class ChatLogActivity : AppCompatActivity() {
             ChatMessage(fromRef.key!!, text, fromId, toId, System.currentTimeMillis() / 1000)
         fromRef.setValue(chatMessage).addOnSuccessListener {
             Log.d(TAG, "Saved our chat message: ${fromRef.key}")
+            binding.edittextChatlog.text.clear()
+            binding.recyclerviewChatlog.scrollToPosition(chatLogs.count() - 1)
         }
         toRef.setValue(chatMessage)
             .addOnSuccessListener {

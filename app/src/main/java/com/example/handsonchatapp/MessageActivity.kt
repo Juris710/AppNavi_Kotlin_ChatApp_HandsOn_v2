@@ -7,16 +7,32 @@ import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.handsonchatapp.databinding.ActivityMessageBinding
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
+import com.google.firebase.database.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import kotlin.coroutines.resume
+import kotlin.coroutines.resumeWithException
+import kotlin.coroutines.suspendCoroutine
 
 const val USER_KEY = "USER_KEY"
+
+suspend fun DatabaseReference.awaitGet(): DataSnapshot {
+    return withContext(Dispatchers.IO) {
+        suspendCoroutine { continuation ->
+            get().addOnSuccessListener {
+                continuation.resume(it)
+            }.addOnFailureListener {
+                continuation.resumeWithException(it)
+            }
+        }
+    }
+}
 
 class MessageActivity : AppCompatActivity() {
 
@@ -68,22 +84,21 @@ class MessageActivity : AppCompatActivity() {
         val fromId = FirebaseAuth.getInstance().uid
         val ref = FirebaseDatabase.getInstance().getReference("/users")
 
-        ref.addListenerForSingleValueEvent(object : ValueEventListener {
-            override fun onDataChange(snapshot: DataSnapshot) {
-                val messageItems = snapshot.children.mapNotNull { userSnapshot ->
-                    val user = userSnapshot.getValue(User::class.java) ?: return@mapNotNull null
-
-                    if (user.uid == currentUser?.uid) {
-                        return@mapNotNull null
-                    }
-
-                    MessageItem(user, "")
+        lifecycleScope.launch {
+            val usersSnapshot = ref.awaitGet()
+            val latestMessageItems = usersSnapshot.children.mapNotNull { userSnapshot ->
+                val user = userSnapshot.getValue(User::class.java) ?: return@mapNotNull null
+                if (user.uid == currentUser?.uid) {
+                    return@mapNotNull null
                 }
-                refreshRecyclerView(messageItems)
+                val latestMessageRef = FirebaseDatabase.getInstance().getReference("/latest-messages/$fromId/${user.uid}")
+                val latestMessageSnapshot = latestMessageRef.awaitGet()
+                val latestMessage = latestMessageSnapshot.getValue(ChatMessage::class.java)
+                val message = latestMessage?.text ?: ""
+                MessageItem(user, message)
             }
-
-            override fun onCancelled(error: DatabaseError) {}
-        })
+            refreshRecyclerView(latestMessageItems)
+        }
     }
 
     private fun refreshRecyclerView(messageItems: List<MessageItem>) {

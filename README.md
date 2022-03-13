@@ -77,14 +77,8 @@
 
 ## Diff
 
-<details>
-  
-<summary>前回との差分</summary>
-
-- [diff](https://github.com/syota-kawaguchi/AppNavi_Kotlin_ChatApp_HandsOn/commit/cdfa306e3c6219f4b983fd9d7addf2d60a545926)
-  
-</details>
+[前回との差分](https://github.com/Juris710/AppNavi_Kotlin_ChatApp_HandsOn_v2/compare/session1.1...session1.2)
 
 ## Next
 
-[session1.3 UIの形や色を変更する](https://github.com/syota-kawaguchi/AppNavi_Kotlin_ChatApp_HandsOn/compare/session1.1...session1.2)
+[session1.3 UIの形や色を変更する](https://github.com/Juris710/AppNavi_Kotlin_ChatApp_HandsOn_v2/tree/session1.3)

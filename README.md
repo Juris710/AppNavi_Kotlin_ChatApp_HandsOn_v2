@@ -6,7 +6,7 @@
 
 ## チャットのレイアウトの作成
 
-- まずdrawableファイルを作成します。`new` → `Drawable Resource File`で`chat_log_from_background`という名前でファイルを作成しましょう。
+- まずdrawableファイルを作成します。`New` → `Drawable Resource File`で`chat_log_from_background`という名前でファイルを作成しましょう。
 - 追加できましたら以下のように編集します。
 
 ```xml
@@ -21,10 +21,8 @@
 </selector>
 ```
 
-- 続いてlayoutファイルを追加します。`new` → `layout Resource File`で`chat_from_row`という名前でファイルを作成しましょう。
-- 追加できましたら`Component Tree`から`ConstraintLayout`を選択し、以下のように設定ます。
-  - `layout_height` : `wrap_content`
-- 次に`Palette`から`ImageView`を配置し、以下のように設定します。
+- 続いてlayoutファイルを追加します。`New` → `layout Resource File`で`chat_from_row`という名前でファイルを作成しましょう。
+- 追加できましたら、`Palette`から`ImageView`を配置し、以下のように設定します。
   - `id` : `imageView_chat_log`
   - `layout_width` : `50dp`
   - `layout_height` : `50dp`
@@ -46,6 +44,8 @@
   - `padding` : `16dp`
   - `text` : `This is my message that will wrap into multiple lines and keep on going`
   - `textColor` : `@color/white`
+- 最後に`Component Tree`から`ConstraintLayout`を選択し、以下のように設定します。
+  - `layout_height` : `wrap_content`
 - 以下のような画面になりましたらOKです。
 
 ![session4 2-chat-from-row-layout](https://user-images.githubusercontent.com/57338033/157143270-8ce4d370-0de5-403d-a141-1a1f00108e18.png)
@@ -136,17 +136,13 @@ class AdapterUtil {
  import androidx.recyclerview.widget.RecyclerView
  import com.example.handsonchatapp.databinding.MessageRowBinding
  import com.squareup.picasso.Picasso
- 
- class MessageAdapter(
-     private val messageItems: List<MessageItem>,
--    private val listener: ListListener
-+    private val listener: AdapterUtil.ListListener<MessageItem>
- ) : RecyclerView.Adapter<MessageViewHolder>() {
- 
+
+
+-class MessageAdapter(private val messageItems: List<MessageItem>,private val listener: ListListener) : RecyclerView.Adapter<MessageViewHolder>() {
 -    interface ListListener {
 -        fun onClickItem(tappedView: View, messageItem: MessageItem)
 -    }
--
++class MessageAdapter(private val messageItems: List<MessageItem>,private val listener: AdapterUtil.ListListener<MessageItem>) : RecyclerView.Adapter<MessageViewHolder>() {
      override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MessageViewHolder {
          val itemBinding =
              MessageRowBinding.inflate(LayoutInflater.from(parent.context), parent, false)

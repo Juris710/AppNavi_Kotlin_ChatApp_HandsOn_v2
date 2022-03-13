@@ -157,15 +157,8 @@ dependencies {
 
 ## Diff
 
-<details>
-  
-<summary>前回との差分</summary>
-  
-  　DiffではActionBarが紫に指定されておりませんが、気にしないでください<br>
-  　[diff](https://github.com/syota-kawaguchi/AppNavi_Kotlin_ChatApp_HandsOn/compare/session1.2...session1.3)
-  
-</details>
+[前回との差分](https://github.com/Juris710/AppNavi_Kotlin_ChatApp_HandsOn_v2/compare/session1.2...session1.3)
 
 ## Next
 
-[session1.4 処理を記述する](https://github.com/syota-kawaguchi/AppNavi_Kotlin_ChatApp_HandsOn/tree/session1.4)
+[session1.4 処理を記述する](https://github.com/Juris710/AppNavi_Kotlin_ChatApp_HandsOn_v2/tree/session1.4)

@@ -132,11 +132,8 @@
 
 ## Diff
 
-<details>
-<summary>前回との差分</summary>
-    <a href="https://github.com/syota-kawaguchi/AppNavi_Kotlin_ChatApp_HandsOn/commit/7162042c66b3713e7e66b1647bd6bfaa07e83589">diff</a>
-</details>
+[前回との差分](https://github.com/Juris710/AppNavi_Kotlin_ChatApp_HandsOn_v2/compare/session1.4...session2.1)
 
 ## Next
 
-[Session2.2 アプリに認証機能とログイン機能を追加する](https://github.com/syota-kawaguchi/AppNavi_Kotlin_ChatApp_HandsOn/tree/session2.2)
+[Session2.2 アプリに認証機能とログイン機能を追加する](https://github.com/Juris710/AppNavi_Kotlin_ChatApp_HandsOn_v2/tree/session2.2)

@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.handsonchatapp.databinding.MessageRowBinding
+import com.squareup.picasso.Picasso
 
 class MessageAdapter(
     private val messageItems: List<MessageItem>,
@@ -34,6 +35,7 @@ class MessageViewHolder(private val itemBinding: MessageRowBinding) :
         itemBinding.usernameTextviewMessage.text = item.username
         itemBinding.latestmessageTextviewMessage.text = item.message
         val userImage = itemBinding.userimageImageviewMessage
+        Picasso.get().load(item.profileImageUrl).into(userImage)
         itemBinding.root.setOnClickListener {
             listener.onClickItem(it, item)
         }

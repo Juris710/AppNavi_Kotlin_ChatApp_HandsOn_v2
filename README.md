@@ -112,7 +112,7 @@ session4からチャット画面・機能を作成していきます。
   - `id` : `send_button_chatlog`
   - `layout_height` : `50dp`
   - `margin`
-    - `left` : `8dp`
+    - `right` : `8dp`
     - `bottom` : `8dp`
   - `text` : `送信`
   - constraint

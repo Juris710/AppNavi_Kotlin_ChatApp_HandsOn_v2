@@ -62,8 +62,11 @@ class RegisterActivity : AppCompatActivity() {
                 }
 
                 Log.d(TAG, "Successfully created user with uid: ${it.result.user?.uid}")
+                val intent = Intent(this, MessageActivity::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
+                startActivity(intent)
             }
-            .addOnFailureListener{
+            .addOnFailureListener {
                 Log.d(TAG, "failed to create user message ${it.message}")
                 Toast.makeText(this, "Failed to create user", Toast.LENGTH_SHORT).show()
             }

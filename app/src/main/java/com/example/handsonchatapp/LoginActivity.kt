@@ -1,5 +1,6 @@
 package com.example.handsonchatapp
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -41,6 +42,9 @@ class LoginActivity : AppCompatActivity() {
                     }
 
                     Log.d(TAG, "Successful Login")
+                    val intent = Intent(this, MessageActivity::class.java)
+                    intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
+                    startActivity(intent)
                 }
                 .addOnFailureListener {
                     Toast.makeText(this, "Failed to Login", Toast.LENGTH_SHORT).show()

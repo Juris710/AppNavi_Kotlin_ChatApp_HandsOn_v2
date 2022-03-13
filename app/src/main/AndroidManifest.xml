@@ -10,6 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HandsOnChatApp">
         <activity
+            android:name=".ChatLogActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MessageActivity" />
+        </activity>
+        <activity
             android:name=".MessageActivity"
             android:exported="false" />
         <activity

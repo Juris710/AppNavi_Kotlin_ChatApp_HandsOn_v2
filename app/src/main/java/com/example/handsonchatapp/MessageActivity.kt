@@ -92,6 +92,8 @@ class MessageActivity : AppCompatActivity() {
                 messageItems,
                 object : MessageAdapter.ListListener {
                     override fun onClickItem(tappedView: View, messageItem: MessageItem) {
+                        val intent = Intent(tappedView.context, ChatLogActivity::class.java)
+                        startActivity(intent)
                     }
                 }
             )

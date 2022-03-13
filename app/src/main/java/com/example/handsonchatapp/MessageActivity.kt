@@ -16,6 +16,8 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 
+const val USER_KEY = "USER_KEY"
+
 class MessageActivity : AppCompatActivity() {
 
     companion object {
@@ -75,7 +77,7 @@ class MessageActivity : AppCompatActivity() {
                         return@mapNotNull null
                     }
 
-                    MessageItem(user.username, "Hello world", user.profileImageUrl)
+                    MessageItem(user, "")
                 }
                 refreshRecyclerView(messageItems)
             }
@@ -93,6 +95,7 @@ class MessageActivity : AppCompatActivity() {
                 object : AdapterUtil.ListListener<MessageItem> {
                     override fun onClickItem(tappedView: View, messageItem: MessageItem) {
                         val intent = Intent(tappedView.context, ChatLogActivity::class.java)
+                        intent.putExtra(USER_KEY, messageItem.user)
                         startActivity(intent)
                     }
                 }

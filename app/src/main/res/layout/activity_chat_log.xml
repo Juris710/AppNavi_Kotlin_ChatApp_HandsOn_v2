@@ -34,8 +34,8 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview_chatlog"
-        android:layout_width="409dp"
-        android:layout_height="672dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toTopOf="@+id/edittext_chatlog"
         app:layout_constraintEnd_toEndOf="parent"

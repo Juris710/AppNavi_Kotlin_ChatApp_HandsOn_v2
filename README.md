@@ -22,7 +22,7 @@
 ```
 
 - 続いてlayoutファイルを追加します。`new` → `layout Resource File`で`chat_from_row`という名前でファイルを作成しましょう。
-- 追加できましたら`Component Tree`から`ConstraintLayout`を選択肢、以下のように設定ます。
+- 追加できましたら`Component Tree`から`ConstraintLayout`を選択し、以下のように設定ます。
   - `layout_height` : `wrap_content`
 - 次に`Palette`から`ImageView`を配置し、以下のように設定します。
   - `id` : `imageView_chat_log`

@@ -355,13 +355,6 @@ dependencies {
 
 ![session1-4-set-image](https://user-images.githubusercontent.com/57338033/156878794-cfebf9f7-3f00-4d0e-b317-25d001a38278.png)
 
-## Diff
-
-<details>
-<summary>前回との差分</summary>
- <a href="https://github.com/syota-kawaguchi/AppNavi_Kotlin_ChatApp_HandsOn/commit/cd83163fed87fb46b11cf33cdb612d2224078250">diff</a>
-</details>
-
 ## 課題
 
 - 現状ログイン画面には何もない状態ですので、ログイン画面を以下の通りにレイアウトを作ってみましょう。merginとIdは以下に記載するのでそのように設定してください
@@ -389,8 +382,10 @@ finish()
 
 ![session1-4-task-login-scene](https://user-images.githubusercontent.com/57338033/156879230-9827d280-085b-4851-9ec4-6e130d781ecf.png)
 
-[答え](https://github.com/syota-kawaguchi/AppNavi_Kotlin_ChatApp_HandsOn/commit/9965485463ce648bfe46cabd5cda73dc19cfb4ad)
+## Diff
+
+[前回との差分(課題の答えもここから)](https://github.com/Juris710/AppNavi_Kotlin_ChatApp_HandsOn_v2/compare/session1.3...session1.4)
 
 ## Next
 
-[session2.1Firebaseを導入する](https://github.com/syota-kawaguchi/AppNavi_Kotlin_ChatApp_HandsOn/tree/session2.1)
+[session2.1Firebaseを導入する](https://github.com/Juris710/AppNavi_Kotlin_ChatApp_HandsOn_v2/tree/session2.1)

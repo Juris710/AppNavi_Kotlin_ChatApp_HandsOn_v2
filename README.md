@@ -31,4 +31,4 @@
 
 ## Next
 
-[session1.1 入力フォームを作成する](https://github.com/syota-kawaguchi/AppNavi_Kotlin_ChatApp_HandsOn/tree/session1.1)
+[session1.1 入力フォームを作成する](https://github.com/Juris710/AppNavi_Kotlin_ChatApp_HandsOn_v2/tree/session1.1)

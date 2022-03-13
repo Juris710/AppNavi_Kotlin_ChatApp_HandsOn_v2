@@ -6,7 +6,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
+import android.widget.Toast
 import com.example.handsonchatapp.databinding.ActivityRegisterBinding
+import com.google.firebase.auth.FirebaseAuth
 
 class RegisterActivity : AppCompatActivity() {
     private lateinit var binding: ActivityRegisterBinding
@@ -19,11 +21,7 @@ class RegisterActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
         binding.registerButtonRegister.setOnClickListener {
-            val email = binding.emailEdittextRegister.text.toString()
-            val password = binding.passwordEdittextRegister.text.toString()
-
-            Log.d(TAG, "Email is: $email")
-            Log.d(TAG, "password is: $password")
+            performClick()
         }
         binding.haveAccountTextRegister.setOnClickListener {
             Log.d(TAG, "try to show login activity")
@@ -38,6 +36,37 @@ class RegisterActivity : AppCompatActivity() {
             intent.type = "image/*"
             startActivityForResult(intent, 0)
         }
+    }
+
+    private fun performClick() {
+        val email = binding.emailEdittextRegister.text.toString()
+        val password = binding.passwordEdittextRegister.text.toString()
+
+        if (email.isEmpty() || password.isEmpty()) {
+            Toast.makeText(this, "Please enter text in email or password", Toast.LENGTH_SHORT)
+                .show()
+            return
+        }
+
+        Log.d(TAG, "Email is: $email")
+        Log.d(TAG, "password is: $password")
+
+        FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password)
+            .addOnCompleteListener {
+                if (it.isCanceled) {
+                    Log.d(TAG, "Canceled")
+                }
+                if (!it.isSuccessful) {
+                    Log.d(TAG, "Failed to create user ${it.exception}")
+                    return@addOnCompleteListener
+                }
+
+                Log.d(TAG, "Successfully created user with uid: ${it.result.user?.uid}")
+            }
+            .addOnFailureListener{
+                Log.d(TAG, "failed to create user message ${it.message}")
+                Toast.makeText(this, "Failed to create user", Toast.LENGTH_SHORT).show()
+            }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

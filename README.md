@@ -119,11 +119,8 @@ idを設定しましょう。これは後にコードとUIを関連付けるた�
 
 ## Diff
 
-<details>
-<summary>前回との差分</summary>
-<a href="https://github.com/syota-kawaguchi/AppNavi_Kotlin_ChatApp_HandsOn/commit/891ba469f1756f41009004bede0bc72db1283a5c">diff</a>
-</details>
+[前回との差分](https://github.com/Juris710/AppNavi_Kotlin_ChatApp_HandsOn_v2/compare/session1.0...session1.1)
 
 ## Next
 
-[session1.2 ボタン・画像を配置する](https://github.com/syota-kawaguchi/AppNavi_Kotlin_ChatApp_HandsOn/tree/session1.2)
+[session1.2 ボタン・画像を配置する](https://github.com/Juris710/AppNavi_Kotlin_ChatApp_HandsOn_v2/tree/session1.2)

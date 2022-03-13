@@ -90,7 +90,7 @@ class MessageActivity : AppCompatActivity() {
             layoutManager = LinearLayoutManager(context)
             adapter = MessageAdapter(
                 messageItems,
-                object : MessageAdapter.ListListener {
+                object : AdapterUtil.ListListener<MessageItem> {
                     override fun onClickItem(tappedView: View, messageItem: MessageItem) {
                         val intent = Intent(tappedView.context, ChatLogActivity::class.java)
                         startActivity(intent)

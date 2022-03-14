@@ -186,7 +186,7 @@ class AdapterUtil {
 - `New` → `Kotlin Class/File`から`ChatLogAdapter`という名前でファイルを作成し、以下のように編集します。
 
 ```kotlin
-package com.example.tutorial
+package com.example.handsonchatapp
 
 import android.view.LayoutInflater
 import android.view.View
@@ -194,8 +194,8 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.tutorial.databinding.ChatFromRowBinding
-import com.example.tutorial.databinding.ChatToRowBinding
+import com.example.handsonchatapp.databinding.ChatFromRowBinding
+import com.example.handsonchatapp.databinding.ChatToRowBinding
 import com.squareup.picasso.Picasso
 
 class ChatLogAdapter(

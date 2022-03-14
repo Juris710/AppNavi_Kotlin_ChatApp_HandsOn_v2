@@ -186,7 +186,7 @@ class AdapterUtil {
 - `New` → `Kotlin Class/File`から`ChatLogAdapter`という名前でファイルを作成し、以下のように編集します。
 
 ```kotlin
-package com.example.handsonchatapp
+package com.example.tutorial
 
 import android.view.LayoutInflater
 import android.view.View
@@ -194,8 +194,8 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.handsonchatapp.databinding.ChatFromRowBinding
-import com.example.handsonchatapp.databinding.ChatToRowBinding
+import com.example.tutorial.databinding.ChatFromRowBinding
+import com.example.tutorial.databinding.ChatToRowBinding
 import com.squareup.picasso.Picasso
 
 class ChatLogAdapter(
@@ -218,11 +218,10 @@ class ChatLogAdapter(
     }
 
     override fun onBindViewHolder(holder: ChatLogViewHolder, position: Int) {
-        holder.itemView.findViewById<TextView>(R.id.textview_chat_log).text = list[position].message
+        holder.chatLog.text = list[position].message
         val url = list[position].profileImageUrl
-        val targetImageView = holder.itemView.findViewById<ImageView>(R.id.imageView_chat_log)
         if (url != "") {
-            Picasso.get().load(url).into(targetImageView)
+            Picasso.get().load(url).into(holder.profileImage)
         }
         holder.itemView.setOnClickListener {
             listener.onClickItem(it, list[position])
@@ -234,21 +233,21 @@ class ChatLogAdapter(
 
 abstract class ChatLogViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     abstract val chatLog: TextView
-    abstract val profileImageUrl: ImageView
+    abstract val profileImage: ImageView
 }
 
 class ChatFromRowViewHolder(private val binding: ChatFromRowBinding) :
     ChatLogViewHolder(binding.root) {
     override val chatLog: TextView
         get() = binding.textviewChatLog
-    override val profileImageUrl: ImageView
+    override val profileImage: ImageView
         get() = binding.imageViewChatLog
 }
 
 class ChatToRowViewHolder(private val binding: ChatToRowBinding) : ChatLogViewHolder(binding.root) {
     override val chatLog: TextView
         get() = binding.textviewChatLog
-    override val profileImageUrl: ImageView
+    override val profileImage: ImageView
         get() = binding.imageViewChatLog
 }
 
